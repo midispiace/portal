@@ -1,15 +1,8 @@
 <?php
-/**
- * offer controller.
- *
- * @copyright (c) 2016 Tomasz Chojna
- * @link http://epi.chojna.info.pl
- */
 
 namespace Controller;
 
 use Repository\OfferRepository;
-use Repository\TagRepository;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -90,8 +83,7 @@ class OfferController implements ControllerProviderInterface
         return $app['twig']->render(
             'offer/view.html.twig',
             ['offer' => $offerRepository->findOneById($id),
-                'offerId' => $id,
-                'tags'     => $offerRepository->findLinkedTags($id),
+                'offerId' => $id
                 ]
         );
     }
@@ -102,8 +94,7 @@ class OfferController implements ControllerProviderInterface
 
         $form = $app['form.factory']->createBuilder(
             offerType::class,
-            $offer,
-            ['tag_repository' => new TagRepository($app['db'])]
+            $offer
         )->getForm();
         $form->handleRequest($request);
 
@@ -159,8 +150,7 @@ class OfferController implements ControllerProviderInterface
 
         $form = $app['form.factory']->createBuilder(
             offerType::class,
-            $offer,
-            ['tag_repository' => new TagRepository($app['db'])]
+            $offer
         )->getForm();
         $form->handleRequest($request);
 
@@ -206,7 +196,7 @@ class OfferController implements ControllerProviderInterface
                 'messages',
                 [
                     'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'message' => 'message.offer_not_found',
                 ]
             );
 

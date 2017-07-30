@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'title.bookmark_add'|trans }}{% endblock %}
+{% block title %}{{ 'title.offer_add'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.bookmark_add'|trans }}</h1>
-    {{ form_start(form, { method: 'post', action: url('bookmark_add') }) }}
+    <h1>{{ 'title.offer_add'|trans }}</h1>
+    {{ form_start(form, { method: 'post', action: url('offer_add') }) }}
     {{ form_widget(form) }}
     <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
     {{ form_end(form) }}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Bookmark type.
+ * Offer type.
  */
 namespace Form;
 
@@ -35,11 +35,11 @@ class OfferType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(
-                        ['groups' => ['bookmark-default']]
+                        ['groups' => ['offer-default']]
                     ),
                     new Assert\Length(
                         [
-                            'groups' => ['bookmark-default'],
+                            'groups' => ['offer-default'],
                             'min' => 3,
                             'max' => 128,
                         ]
@@ -58,17 +58,17 @@ class OfferType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(
-                        ['groups' => ['bookmark-default']]
+                        ['groups' => ['offer-default']]
                     ),
                     new Assert\Length(
                         [
-                            'groups' => ['bookmark-default'],
+                            'groups' => ['offer-default'],
                             'min' => 3,
                             'max' => 128,
                         ]
                     ),
                     new Assert\Url(
-                        ['groups' => ['bookmark-default']]
+                        ['groups' => ['offer-default']]
                     ),
                 ],
             ]
@@ -83,32 +83,6 @@ class OfferType extends AbstractType
                 ],
             ]
         );
-        $builder->add(
-            'is_public',
-            ChoiceType::class,
-            [
-                'label' => 'label.is_public',
-                'choices'  => [
-                    'label.no' => 0,
-                    'label.yes' => 1,
-                ],
-                'required' => true,
-                'constraints' => [
-                    new Assert\NotBlank(
-                        ['groups' => ['bookmark-default']]
-                    ),
-                    new Assert\Choice(
-                        [
-                            'groups' => ['bookmark-default'],
-                            'choices' => [0, 1],
-                        ]
-                    ),
-                ],
-            ]
-        );
-        $builder->get('tags')->addModelTransformer(
-            new TagsDataTransformer($options['tag_repository'])
-        );
     }
 
     /**
@@ -118,8 +92,7 @@ class OfferType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'validation_groups' => 'bookmark-default',
-                'tag_repository' => null,
+                'validation_groups' => 'offer-default'
             ]
         );
     }
@@ -129,18 +102,7 @@ class OfferType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'bookmark_type';
+        return 'offer_type';
     }
 
-    protected function prepareTagsForChoices($tagRepository)
-    {
-        $tags = $tagRepository->findAll();
-        $choices = [];
-
-        foreach ($tags as $tag) {
-            $choices[$tag['name']] = $tag['id'];
-        }
-
-        return $choices;
-    }
 }

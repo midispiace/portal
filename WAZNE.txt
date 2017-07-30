@@ -2,3 +2,4 @@ WAŻNE. BARDZO.
 
 * usunąć gulpfile.js
 * usunąć package.json
+* usunąć ten plik ;P

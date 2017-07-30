@@ -2,61 +2,73 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="title.bookmarks_list">
-                <source>title.bookmarks_list</source>
-                <target>Lista zakładek</target>
+            <trans-unit id="title.offers_list">
+                <source>title.offers_list</source>
+                <target>Lista ogłoszeń</target>
             </trans-unit>
-            <trans-unit id="title.tags_list">
-                <source>title.tags_list</source>
-                <target>Lista tagów</target>
-            </trans-unit>
-            <trans-unit id="title.bookmark_view">
-                <source>title.bookmark_view</source>
-                <target>Zakładka #%id%</target>
+            <trans-unit id="title.offer_view">
+                <source>title.offer_view</source>
+                <target>Ogłoszenie #%id%</target>
             </trans-unit>
             <trans-unit id="title.tag_view">
                 <source>title.tag_view</source>
                 <target>Tag #%id%</target>
             </trans-unit>
-            <trans-unit id="bookmark_table.title">
-                <source>bookmark_table.title</source>
-                <target>Nazwa</target>
+            <trans-unit id="offer_table.osoba">
+                <source>offer_table.osoba</source>
+                <target>Osoba</target>
             </trans-unit>
-            <trans-unit id="bookmark_table.url">
-                <source>bookmark_table.url</source>
-                <target>Link</target>
+            <trans-unit id="offer_table.id">
+                <source>offer_table.id</source>
+                <target>ID</target>
             </trans-unit>
-            <trans-unit id="bookmark_table.tag">
-                <source>bookmark_table.tag</source>
-                <target>Tagi</target>
+            <trans-unit id="offer_table.tresc">
+                <source>offer_table.tresc</source>
+                <target>Treść ogłoszenia</target>
             </trans-unit>
-            <trans-unit id="bookmarks_not_found">
-                <source>bookmarks_not_found</source>
-                <target>Nie znaleziono zakładek!</target>
+            <trans-unit id="offer_table.data_wydarzenia">
+                <source>offer_table.data_wydarzenia</source>
+                <target>Data wydarzenia</target>
             </trans-unit>
-            <trans-unit id="tag_not_found">
-                <source>tag_not_found</source>
-                <target>Taki tag nie istnieje!</target>
+            <trans-unit id="offers_not_found">
+                <source>offers_not_found</source>
+                <target>Nie znaleziono ogłoszeń!</target>
             </trans-unit>
-            <trans-unit id="tags_not_found">
-                <source>tags_not_found</source>
-                <target>Nie znaleziono tagów!</target>
-            </trans-unit>
-            <trans-unit id="bookmark_not_found">
-                <source>bookmark_not_found</source>
-                <target>Taka zakładka nie istnieje!</target>
+            <trans-unit id="offer_not_found">
+                <source>offer_not_found</source>
+                <target>Takie ogłoszenie nie istnieje!</target>
             </trans-unit>
             <trans-unit id="label.back_to_list">
                 <source>label.back_to_list</source>
-                <target>Wróć do listy zakładek</target>
+                <target>Wróć do listy ogłoszeń</target>
             </trans-unit>
             <trans-unit id="label.view">
                 <source>label.view</source>
-                <target>Zobacz zakładkę</target>
+                <target>Zobacz ogłoszenie</target>
             </trans-unit>
-            <trans-unit id="title.bookmark_delete">
-                <source>title.bookmark_delete</source>
-                <target>Usuń zakładkę #%id%: %title%</target>
+            <trans-unit id="label.edit">
+                <source>label.edit</source>
+                <target>Edytuj ogłoszenie</target>
+            </trans-unit>
+            <trans-unit id="label.delete">
+                <source>label.delete</source>
+                <target>Usuń ogłoszenie</target>
+            </trans-unit>
+            <trans-unit id="label.offer_add">
+                <source>label.offer_add</source>
+                <target>Dodaj ogłoszenie</target>
+            </trans-unit>
+            <trans-unit id="labels.nav.prev">
+                <source>labels.nav.prev</source>
+                <target>Poprzednia strona</target>
+            </trans-unit>
+            <trans-unit id="labels.nav.next">
+                <source>labels.nav.next</source>
+                <target>Następna strona</target>
+            </trans-unit>
+            <trans-unit id="title.offer_delete">
+                <source>title.offer_delete</source>
+                <target>Usuń ogłoszenie #%id%: %title%</target>
             </trans-unit>
         </body>
 
