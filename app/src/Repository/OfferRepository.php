@@ -15,16 +15,8 @@ use Utils\Paginator;
  */
 class OfferRepository
 {
-
     /**
-     * Tag repository.
-     *
-     * @var null|\Repository\TagRepository $tagRepository
-     */
-    protected $tagRepository = null;
-
-    /**
-     * TagRepository constructor.
+     * OfferRepository constructor.
      *
      * @param \Doctrine\DBAL\Connection $db
      */
@@ -110,24 +102,16 @@ class OfferRepository
 
         try {
             $currentDateTime = new \DateTime();
-            $offer['modified_at'] = $currentDateTime->format('Y-m-d H:i:s');
-            $tagsIds = isset($offer['tags']) ? array_column($offer['tags'], 'id') : [];
-            unset($offer['tags']);
 
             if (isset($offer['id']) && ctype_digit((string) $offer['id'])) {
                 // update record
                 $offerId = $offer['id'];
                 unset($offer['id']);
-                $this->removeLinkedTags($offerId);
-                $this->addLinkedTags($offerId, $tagsIds);
-                $this->db->update('si_offers', $offer, ['id' => $offerId]);
+                $this->db->update('ogloszenie', $offer, ['numer' => $offerId]);
             } else {
                 // add new record
-                $offer['created_at'] = $currentDateTime->format('Y-m-d H:i:s');
-
-                $this->db->insert('si_offers', $offer);
+                $this->db->insert('ogloszenie', $offer);
                 $offerId = $this->db->lastInsertId();
-                $this->addLinkedTags($offerId, $tagsIds);
             }
             $this->db->commit();
         } catch (DBALException $e) {
@@ -150,8 +134,7 @@ class OfferRepository
         $this->db->beginTransaction();
 
         try {
-            $this->removeLinkedTags($offer['id']);
-            $this->db->delete('si_offers', ['id' => $offer['id']]);
+            $this->db->delete('ogloszenie', ['numer' => $offer['id']]);
             $this->db->commit();
         } catch (DBALException $e) {
             $this->db->rollBack();
